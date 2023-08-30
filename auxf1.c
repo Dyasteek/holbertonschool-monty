@@ -4,27 +4,28 @@
  *
  * @stack: the stack
  * @line: actual line
+ * @arg: value to be pushed on the stack
  * Return: void
  */
 void push(stack_t **stack, __attribute__((unused)) unsigned int line)
 {
-	stack_t *new, *tmp = *stack;
+    stack_t *new, *tmp= *stack;
 	int arg = 0;
 
-	new = malloc(sizeof(stack_t));
-	if (new == NULL)
-	{
-		fprintf(stderr, "Error: malloc failed\n");
-		exit(EXIT_FAILURE);
-	}
-	new->n = arg;
-	new->next = tmp;
-	new->prev = NULL;
-	if (tmp != NULL)
-	{
-		tmp->prev = new;
-	}
-	*stack = new;
+    new = malloc(sizeof(stack_t));
+    if (new == NULL)
+    {
+        fprintf(stderr, "Error: malloc failed\n");
+        exit(EXIT_FAILURE);
+    }
+    new->n = arg;
+    new->next = tmp;
+    new->prev = NULL;
+    if (tmp != NULL)
+    {
+        tmp->prev = new;
+    }
+    *stack = new;
 }
 
 /**
@@ -40,10 +41,7 @@ void pall(stack_t **stack, __attribute__((unused)) unsigned int line)
 
 	if (*stack != NULL)
 	{
-		while (tmp != NULL)
-		{
-			printf("%d\n", tmp->n);
-			tmp = tmp->next;
-		}
+		printf("%d\n", tmp->n);
+		tmp = tmp->next;
 	}
 }

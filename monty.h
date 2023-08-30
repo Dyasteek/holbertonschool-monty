@@ -41,6 +41,10 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+/*      ext     */
+//extern int arg;
+/*      end     */
+
 /*	Prototypes	*/
 void push(stack_t **stack, __attribute__((unused)) unsigned int line);
 void pall(stack_t **stack, __attribute__((unused)) unsigned int line);
