@@ -1,9 +1,15 @@
 #ifndef MONTY_H
 #define MONTY_H
 
-#include <stdlib.h>
+/*      libs    */
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <unistd.h>
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
+/*      end     */
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -35,14 +41,16 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-/*      extern          */
-extern int arg;
-/* end */
-
 /*	Prototypes	*/
-void push(stack_t **stack);
-void pall(stack_t **stack);
-void free_node(stack_t *stack);
+void push(stack_t **stack, __attribute__((unused)) unsigned int line);
+void pall(stack_t **stack, __attribute__((unused)) unsigned int line);
+void free_nudes(stack_t **stack);
 /*	end	*/
+
+/*      text work       */
+char *readin(const char *name);
+char **readtext(char *text);
+char *rdline(char *line, unsigned int linu, stack_t **stack, char *e1, char **e2);
+/*      end     */
 
 #endif

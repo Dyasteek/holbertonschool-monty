@@ -1,25 +1,28 @@
 #include "monty.h"
-
 /**
- * @stack: the head of the stack
+ * push - push an element to the stack
+ *
+ * @stack: the stack
+ * @line: actual line
+ * Return: void
  */
-
-void push(stack_t **stack)
+void push(stack_t **stack, __attribute__((unused)) unsigned int line)
 {
-	stack_t *new, *temp = *stack;
+	stack_t *new, *tmp = *stack;
+	int arg = 0;
 
-	new = malloc(sizeof(stack_t) + 1);
+	new = malloc(sizeof(stack_t));
 	if (new == NULL)
 	{
-		fprintf(stderr, "L%d: usage: push integer\n");
+		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
 	new->n = arg;
-	new->next = temp;
+	new->next = tmp;
 	new->prev = NULL;
-	if (temp != NULL)
+	if (tmp != NULL)
 	{
-		temp->prev = new;
+		tmp->prev = new;
 	}
 	*stack = new;
 }
@@ -27,21 +30,20 @@ void push(stack_t **stack)
 /**
  * pall - prints all values on the stack
  *
- * @stack: head of the stack
+ * @stack: the stack
+ * @line: actual line
  * Return: void
  */
-
-void pall(stack_t **stack)
+void pall(stack_t **stack, __attribute__((unused)) unsigned int line)
 {
-	stack_t *temp = *stack;
+	stack_t *tmp = *stack;
 
 	if (*stack != NULL)
 	{
-		while (temp != NULL)
+		while (tmp != NULL)
 		{
-			printf("%d\n", temp->n);
-			temp = temp->next;
+			printf("%d\n", tmp->n);
+			tmp = tmp->next;
 		}
-		free(temp);
 	}
 }
