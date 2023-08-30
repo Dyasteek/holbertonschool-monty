@@ -9,8 +9,7 @@
  */
 void push(stack_t **stack, __attribute__((unused)) unsigned int line)
 {
-    stack_t *new, *tmp= *stack;
-	int arg = 0;
+    stack_t *new, *tmp = *stack;
 
     new = malloc(sizeof(stack_t));
     if (new == NULL)
@@ -41,7 +40,10 @@ void pall(stack_t **stack, __attribute__((unused)) unsigned int line)
 
 	if (*stack != NULL)
 	{
+		while (tmp != NULL)
+		{
 		printf("%d\n", tmp->n);
 		tmp = tmp->next;
+		}
 	}
 }

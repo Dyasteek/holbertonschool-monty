@@ -42,7 +42,7 @@ typedef struct instruction_s
 } instruction_t;
 
 /*      ext     */
-//extern int arg;
+extern int arg;
 /*      end     */
 
 /*	Prototypes	*/

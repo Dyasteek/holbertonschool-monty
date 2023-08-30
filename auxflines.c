@@ -76,7 +76,6 @@ char **readtext(char *text)
  * @f2: element to free
  * Return: comand and argument
  */
-
 char *rdline(char *line, unsigned int linu, stack_t **stack, char *e1, char **e2)
 {
 	char *word, *num;

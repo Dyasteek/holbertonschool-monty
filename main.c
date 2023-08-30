@@ -1,5 +1,4 @@
 #include "monty.h"
-
 /**
  * main - reads and interprets monty code
  *
